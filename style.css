@@ -29,14 +29,18 @@ body {
 
 .temp {
   border-radius: 25px;
-  background-color: transparent;
+  background-color: white;
   padding: 3px;
   border: 1px solid black;
-  color: white;
+  color: black;
 }
 
 .temp:hover {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
+}
+
+button:focus {
+  outline: none;
 }
 
