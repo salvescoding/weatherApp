@@ -26,7 +26,6 @@ function setPosition(position) {
   //Toggle function to change temperature from Celcius to Fahrenheit and vice versa
 function toggleTemp() {
 
-
   if(celcius) {
     currentTemperature = (currentTemperature*(9/5))+32;
     celcius = false;
@@ -42,7 +41,6 @@ function toggleTemp() {
 
 
 function updateWeather(data) {
-
   currentTemperature = data.main.temp.toPrecision(3);
 
   results.insertAdjacentHTML("afterbegin", `<h3> Your location: ${data.name} </h3>`);
@@ -55,25 +53,26 @@ function updateWeather(data) {
 }
 
 function updateImage(data) {
-  document.body.style.background = "url('images/clear.jpg')";
+  document.body.style.background = "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('images/clear.jpg')";
+  let id = data.weather[0].id;
 
-  if (data.weather[0].id >= 200 && data.weather[0].id <=232) {
-    document.body.style.backgroundImage = "url('images/storm.jpg')";
+  if (id >= 200 && id <=232) {
+    document.body.style.background = "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('images/storm.jpg')";
   }
-  else if (data.weather[0].id >= 300 && data.weather[0].id <=321) {
-    document.body.style.backgroundImage = "url('images/raining.jpg')";
+  else if (id >= 300 && id <=321) {
+    document.body.style.background= "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('images/raining.jpg')";
   }
-  else if (data.weather[0].id >= 500 && data.weather[0].id <=531) {
-    document.body.style.backgroundImage = "url('images/rain.jpg')";
+  else if (id >= 500 && id <=531) {
+    document.body.style.backgroud = "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('images/rain.jpg')";
   }
-  else if (data.weather[0].id >= 600 && data.weather[0].id <=622) {
-    document.body.style.backgroundImage = "url('images/snow.jpg')";
+  else if (id >= 600 && id <=622) {
+    document.body.style.background = "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('images/snow.jpg')";
   }
-  else if (data.weather[0].id == 800) {
-    document.body.style.backgroundImage = "url('images/clear.jpg')";
+  else if (id == 800) {
+    document.body.style.background = "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('images/clear.jpg')";
   }
-  else if (data.weather[0].id >= 801 && data.weather[0].id <=804) {
-    document.body.style.backgroundImage = "url('images/clouds.jpg')";
+  else if (id >= 801 && id <=804) {
+    document.body.style.background = "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('images/clouds.jpg')";
   }
 }
 
